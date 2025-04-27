@@ -31,16 +31,4 @@ services:
     command: yarn dev # Usar yarn dev para desenvolvimento, reflete mudanças sem rebuild 
     restart: unless-stopped # Adicionado para reiniciar se cair
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80" # Mapeia a porta 80 do host para a porta 80 do Nginx
-      # - "443:443" # Descomente se for configurar HTTPS depois
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro # Monta a config do Nginx (read-only)
-      # - ./certbot/conf:/etc/letsencrypt # Descomente para HTTPS com Let's Encrypt
-      # - ./certbot/www:/var/www/certbot # Descomente para HTTPS com Let's Encrypt
-    depends_on:
-      - store
-      - checkout
-    restart: unless-stopped # Adicionado para reiniciar se cair 
+# Serviço nginx removido - EasyPanel cuidará do reverse proxy 

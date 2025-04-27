@@ -22,7 +22,7 @@ services:
       context: ./ff-new
       dockerfile: Dockerfile # E este também
     ports:
-      - "3000:3000"
+      - "3002:3000"
     volumes:
       - ./ff-new:/app
       - /app/node_modules

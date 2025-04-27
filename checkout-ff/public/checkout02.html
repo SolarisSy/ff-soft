@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garena Tax - Pagamento PIX</title>
+    <link rel="icon" href="./img/garena.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+         <header>
+             <!-- Barra Superior (Copiada do index.html) -->
+             <div class="top-bar">
+                 <div class="top-bar-content">
+                     <a href="/" class="logo-link">
+                          <img src="./img/garena.png" alt="Garena Logo" class="garena-logo-svg-placeholder">
+                          <div class="separator"></div>
+                          <span class="channel-text">Pagamento Garena</span> <!-- Texto pode ser ajustado -->
+                     </a>
+                     <!-- <div class="user-section"> ... </div> --> <!-- Manter comentado/removido -->
+                 </div>
+             </div>
+        
+             <!-- Seção Banner e Ícone (Copiada do index.html) -->
+             <div class="main-banner-section">
+                 <div class="banner-image-container">
+                     <div class="banner-image-bg" style="background-image: url('./img/banner.png');"></div>
+                     <a href="#" class="back-button-ref">
+                          <i class="fas fa-arrow-left"></i>
+                          <span>Voltar</span>
+                      </a>
+                 </div>
+                 <div class="game-info-overlay">
+                      <!-- Usar ícone genérico Garena aqui? -->
+                     <img src="./img/garena.png" alt="Garena Pagamentos" class="game-icon-ref">
+                     <div class="game-title-ref">Pagamento Garena</div> <!-- Título genérico -->
+                 </div>
+             </div>
+         </header>
+
+        <main>
+            <section class="order-summary">
+                 <!-- Adicionando imagem do produto -->
+                 <div class="product-image-container">
+                    <img src="./img/garena.png" alt="Garena Tax" class="product-image-garena">
+                 </div>
+                 <div class="final-price">
+                    <span>Produto</span>
+                    <span>Garena Tax</span>
+                </div>
+                 <!-- Resto do resumo -->
+                 <div class="final-price">
+                    <span>Preço</span>
+                    <span>R$ 15,90</span>
+                </div>
+                <div class="payment-method">
+                    <span>Método de pagamento</span>
+                    <span>Pix</span>
+                </div>
+            </section>
+
+            <form id="checkout-form">
+                 <!-- Campos mantêm-se simplificados -->
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required>
+                </div>
+
+                <p class="terms">
+                    Ao clicar em "Prosseguir para Pagamento", atesto que li e concordo com os <a href="#">termos de uso</a> e com a <a href="#">política de privacidade</a>.
+                </p>
+                <button type="submit" class="submit-button">Prosseguir para pagamento</button>
+                <div id="loading-indicator" class="hidden">
+                </div>
+            </form>
+
+            <section id="pix-section" class="hidden">
+                <h2>Pague com PIX</h2>
+                <p>Escaneie o QR Code abaixo ou use o código Copia e Cola:</p>
+                <div id="qrcode-container"></div>
+                <textarea id="pix-copia-cola" rows="4" readonly></textarea>
+                <button type="button" id="copy-button">Copiar Código</button>
+                <button type="button" id="check-payment-button" class="check-button hidden">Verificar Pagamento</button>
+                <button type="button" id="already-paid-button" class="paid-button hidden">Já paguei!</button>
+                <p id="expiration-info"></p>
+                <p id="status-message"></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Pagamento Garena. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script02.js"></script>
+</body>
+</html> 

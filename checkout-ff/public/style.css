@@ -1,0 +1,602 @@
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5; /* Fundo cinza claro geral */
+    color: #333333; /* Cor de texto padrão escura */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1024px; /* Aumentando um pouco, como max-w-5xl */
+    margin: 0 auto;
+    background-color: #ffffff; /* Fundo branco para o conteúdo principal */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {} /* Remover background antigo daqui */
+
+/* Barra Superior */
+.top-bar {
+    height: 60px; /* Altura fixa (similar a h-14/md:h-[60px]) */
+    border-bottom: 1px solid #e5e7eb; /* Borda clara (similar a border-line/50) */
+    background-color: #ffffff; /* Fundo branco (similar a bg-bg-base no tema claro) */
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-content {
+    max-width: 1024px; /* Similar a max-w-5xl */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch; /* Alinha itens na altura total */
+    justify-content: space-between;
+    padding: 0 16px; /* Similar a px-4 */
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Similar a gap-3 */
+    text-decoration: none;
+    color: inherit;
+}
+
+.garena-logo-svg-placeholder {
+    height: 36px;
+    width: auto;
+}
+
+.separator {
+    height: 20px; /* Similar a h-5 md:h-3.5 */
+    border-left: 1px solid #d1d5db; /* Similar a border-e border-short-line */
+    margin-left: 6px; /* Similar a ms-1.5 md:ms-3 */
+}
+
+.channel-text {
+    font-size: 1rem; /* Similar a md:text-base/5 */
+    font-weight: 500;
+    color: #374151; /* Similar a text-text-title */
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+/* Seção Banner Principal e Ícone */
+.main-banner-section {
+    background-color: #ffffff; /* Similar a bg-bg-base */
+    padding: 8px; /* Similar a md:p-2 */
+    padding-bottom: 0;
+}
+
+.banner-image-container {
+    position: relative;
+    height: 96px; /* Reduzido 20% de 120px */
+    overflow: hidden;
+    border-top-left-radius: 0.5rem; /* Similar a rounded-t-lg */
+    border-top-right-radius: 0.5rem;
+}
+
+.banner-image-bg {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.back-button-ref { /* Estilo do botão voltar da referência */
+    position: absolute;
+    left: 24px; /* start-6 */
+    top: 24px; /* top-6 */
+    display: flex;
+    align-items: center;
+    gap: 2px; /* gap-0.5 */
+    border-radius: 9999px; /* rounded-full */
+    background-color: rgba(0, 0, 0, 0.4); /* bg-black/40 */
+    padding: 6px 14px 6px 6px; /* p-1.5 pe-3.5 */
+    font-size: 1rem; /* text-base/none */
+    font-weight: 500;
+    color: white;
+    outline: 1px solid rgba(255, 255, 255, 0.7); /* outline outline-1 outline-white/70 */
+    outline-offset: -1px; /* -outline-offset-1 */
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.back-button-ref:hover {
+     background-color: rgba(96, 96, 96, 0.5); /* hover:bg-[#606060]/50 */
+}
+.back-button-ref i {
+    font-size: 1.25rem; /* text-xl */
+    /* transform: rotate(90deg); */ /* Rotação não parece necessária aqui */
+}
+
+
+.game-info-overlay {
+    position: relative;
+    margin: -40px auto 20px auto; /* Ajustado margin-top e adicionado bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* gap-4 */
+    width: fit-content; /* Para centralizar corretamente com margin auto */
+    z-index: 10; /* Para garantir que fique sobre outros elementos se necessário */
+}
+
+.game-icon-ref {
+    display: block;
+    height: 80px; /* h-20 */
+    width: 80px; /* w-20 */
+    overflow: hidden;
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: white; /* bg-white */
+    object-fit: contain; /* object-contain */
+    outline: 4px solid #ffffff; /* outline outline-4 outline-bg-base (branco aqui) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra adicionada */
+}
+
+.game-title-ref {
+    text-align: center;
+    font-size: 1.5rem; /* text-2xl/none */
+    line-height: 1;
+    font-weight: 700; /* font-bold */
+    color: #111827; /* text-text-title (cor escura) */
+}
+
+
+/* Remover/Ajustar estilos antigos do header que conflitam */
+.banner-top, .banner-main, .game-info, .back-button, .game-icon, .ff-banner-img {
+     display: none; /* Oculta definições antigas */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    background-color: #ffffff;
+    /* Remover sombra superior que pode ter vindo do .game-info antigo */
+    box-shadow: none;
+}
+
+/* Resumo do Pedido */
+.order-summary {
+    background-color: #f8f9fa; /* Fundo cinza muito claro */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    border: 1px solid #e9ecef;
+}
+
+.order-summary > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+    color: #555;
+}
+
+.order-summary > div:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.total-diamonds span:first-child,
+.price-breakdown span:first-child,
+.final-price span:first-child,
+.payment-method span:first-child,
+.player-name-display span:first-child {
+    color: #6c757d; /* Cinza para os títulos */
+}
+
+.total-diamonds span:last-child,
+.price-breakdown span:last-child {
+    color: #323232; 
+    font-weight: 500;
+}
+
+.total-diamonds span:last-child i,
+.price-breakdown span:last-child i {
+    margin-right: 4px;
+    font-size: 0.8em;
+}
+
+.total-diamonds {
+    font-weight: 600;
+    color: #212529; /* Texto mais escuro para total */
+    font-size: 1rem;
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 15px;
+}
+
+.final-price span:last-child {
+    color: #212529;
+    font-weight: 600;
+}
+
+.payment-method span:last-child {
+    font-weight: 500;
+    color: #333;
+}
+
+.player-name-display span:last-child {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Formulário */
+#checkout-form {
+    background-color: transparent; /* Fundo transparente, usa o do main */
+    padding: 0; /* Remove padding extra */
+    border-radius: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #495057;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #495057;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group input::placeholder {
+    color: #adb5bd;
+}
+
+.promo-code .input-group {
+    display: flex;
+}
+
+.promo-code input {
+    flex-grow: 1; /* Mantém para ocupar espaço */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.promo-code .apply-button {
+    padding: 12px 15px;
+    background-color: #E94057; /* Rosa/Vermelho do botão aplicar */
+    color: white;
+    border: 1px solid #E94057;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.promo-code .apply-button:hover {
+    background-color: #d6304a;
+    border-color: #d6304a;
+}
+
+/* Estilo para campos/botões desabilitados */
+.form-group input:disabled,
+.promo-code .apply-button:disabled {
+    background-color: #e9ecef; /* Fundo cinza claro */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Cor do texto do botão desabilitado */
+.promo-code .apply-button:disabled {
+     border-color: #adb5bd;
+     background-color: #adb5bd;
+}
+
+/* Mensagem de desconto aplicado */
+.promo-applied-message {
+    font-size: 0.8rem;
+    color: #28a745; /* Verde sucesso */
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group.half-width {
+    flex: 1;
+}
+
+.terms {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.terms a {
+    color: #E94057; /* Link com a cor do botão */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #dc3545; /* Vermelho para o botão principal */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #c82333;
+}
+
+.submit-button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* Indicador de Loading */
+#loading-indicator {
+    margin-top: 15px;
+    padding: 10px 15px; /* Aumentar padding lateral */
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-align: center;
+    /* font-style: italic; */ /* Remover itálico se preferir */
+    color: #6c757d;
+    font-weight: 500; /* Deixar um pouco mais forte */
+}
+
+/* Seção PIX */
+#pix-section {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+}
+
+#pix-section h2 {
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+#pix-section p {
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+#qrcode-container {
+    margin: 20px auto;
+    background-color: white;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+#qrcode-container img {
+    display: block;
+    max-width: 180px;
+    height: auto;
+}
+
+#pix-copia-cola {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: monospace;
+    background-color: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+#copy-button {
+    padding: 10px 15px;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#copy-button:hover {
+    background-color: #218838;
+}
+
+#expiration-info {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+#status-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545; /* Vermelho */
+}
+
+.success {
+    color: #28a745; /* Verde */
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #6c757d;
+    background-color: #f8f9fa; /* Fundo claro para rodapé também */
+    border-top: 1px solid #e9ecef;
+}
+
+/* Utilitários */
+.hidden {
+    display: none;
+}
+
+/* Ícone de Diamante como Imagem */
+.diamond-icon {
+    height: 1em; /* Altura relativa ao tamanho da fonte */
+    width: auto;
+    margin-right: 4px;
+    vertical-align: middle; /* Alinha verticalmente com o texto */
+    margin-bottom: 2px; /* Pequeno ajuste vertical se necessário */
+}
+
+/* Remover regra antiga do Font Awesome se existir */
+.fas.fa-diamond {
+     /* display: none;  Ou remova a regra */
+}
+
+/* Estilo para imagem do produto em Garena Reserve */
+.product-image-container {
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.product-image-garena {
+    max-width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* --- INÍCIO: Estilos para Ofertas Especiais Adicionadas --- */
+
+#special-offers-list {
+    /* Herda display:flex e justify-content:space-between do pai .price-breakdown,
+       mas como os itens serão adicionados aqui, vamos controlar o layout deles */
+    margin-top: 10px; /* Espaço acima da lista de ofertas */
+    /* Remove borda inferior herdada caso exista alguma regra geral */
+    border-bottom: none;
+}
+
+.special-offer-item {
+    display: flex; /* Organiza nome e preço lado a lado */
+    justify-content: space-between; /* Espaça nome e preço */
+    margin-bottom: 8px; /* Espaço entre itens de oferta */
+    padding-bottom: 8px; /* Espaço abaixo de cada item */
+    border-bottom: 1px dashed #e0e0e0; /* Linha tracejada sutil entre ofertas */
+    font-size: 0.85rem; /* Tamanho de fonte ligeiramente menor */
+    color: #555; /* Mesma cor das outras linhas de detalhe */
+}
+
+/* Remove a borda inferior do último item da lista de ofertas */
+.special-offer-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.special-offer-item span:first-child {
+    /* Nome da oferta (semelhante aos títulos das outras linhas) */
+    color: #6c757d; /* Cinza como os títulos */
+}
+
+.special-offer-item span:last-child {
+    /* Preço da oferta (semelhante aos valores das outras linhas) */
+    color: #323232;
+    font-weight: 500;
+}
+
+/* Estilo para o botão Verificar Pagamento */
+.check-button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Espaço entre os botões */
+    margin-bottom: 15px; /* Alinha com o botão de copiar */
+    vertical-align: top; /* Alinha com o botão de copiar */
+}
+
+.check-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o botão Já Paguei */
+.paid-button {
+    padding: 10px 15px;
+    background-color: #ffc107; /* Amarelo alerta/atenção */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Espaço entre os botões */
+    margin-bottom: 15px; /* Alinha com os outros botões */
+    vertical-align: top; /* Alinha com os outros botões */
+    font-weight: 500;
+}
+
+.paid-button:hover {
+    background-color: #e0a800;
+}
+
+/* --- FIM: Estilos para Ofertas Especiais Adicionadas --- */ 

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  checkout:
+    build:
+      context: ./checkout-ff
+      dockerfile: Dockerfile # Vamos criar este Dockerfile também
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./checkout-ff:/app
+      - /app/node_modules # Evita que node_modules local sobrescreva o do container
+    environment:
+      - NODE_ENV=development
+      # Você precisará criar um arquivo .env em checkout-ff com SHARKPAY_SECRET_KEY
+      # Ou adicionar a variável diretamente aqui:
+      # - SHARKPAY_SECRET_KEY=sua_chave_aqui
+    command: npm start
+
+  store:
+    build:
+      context: ./ff-new
+      dockerfile: Dockerfile # E este também
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ff-new:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+    command: yarn dev # Usar yarn dev para desenvolvimento, reflete mudanças sem rebuild 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga Free Fire - PIX</title>
+    <link rel="icon" href="./img/garena.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts (Exemplo: Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+             <!-- Barra Superior (similar a h-14 border-b bg-bg-base) -->
+             <div class="top-bar">
+                 <div class="top-bar-content"> <!-- Similar a max-w-5xl flex justify-between -->
+                     <a href="/" class="logo-link"> <!-- Similar a flex items-center gap-2.5 -->
+                          <!-- <svg> Garena Logo aqui </svg> -->
+                          <img src="./img/garena.png" alt="Garena Logo" class="garena-logo-svg-placeholder"> <!-- Placeholder -->
+                          <div class="separator"></div>
+                          <span class="channel-text">Canal Oficial de Recarga</span>
+                     </a>
+                 </div>
+             </div>
+        
+             <!-- Seção do Banner Principal e Ícone do Jogo -->
+             <div class="main-banner-section"> <!-- Similar a bg-bg-base md:rounded-t-2xl -->
+                 <div class="banner-image-container"> <!-- Similar a relative h-20 overflow-hidden -->
+                     <div class="banner-image-bg" style="background-image: url('./img/banner.png');"></div> <!-- Usando background-image -->
+                     <a href="#" class="back-button-ref"> <!-- Botão voltar como na referência -->
+                          <i class="fas fa-arrow-left"></i> <!-- Ícone mantido por simplicidade -->
+                          <span>Voltar</span>
+                      </a>
+                 </div>
+                 <div class="game-info-overlay"> <!-- Similar a relative mx-5 -mt-9 flex flex-col items-center -->
+                     <img src="./img/icon.png" alt="Free Fire Icon" class="game-icon-ref">
+                     <div class="game-title-ref">Free Fire</div>
+                 </div>
+             </div>
+         </header>
+
+        <main>
+            <section class="order-summary">
+                <div class="total-diamonds">
+                    <span>Total</span>
+                    <span><img src="./img/diamond.png" alt="Diamante" class="diamond-icon"> 6720</span>
+                </div>
+                <div class="price-breakdown">
+                    <div>
+                        <span>Preço Original</span>
+                        <span><img src="./img/diamond.png" alt="Diamante" class="diamond-icon"> 5600</span>
+                    </div>
+                    <div>
+                        <span>+ Bônus Geral</span>
+                        <span><img src="./img/diamond.png" alt="Diamante" class="diamond-icon"> 1120</span>
+                    </div>
+                    <div id="special-offers-list" class="special-offers-section">
+                        {/* Ofertas adicionadas via JS aparecerão aqui */}
+                    </div>
+                </div>
+                <p class="disclaimer">
+                    Os diamantes, são válidos apenas para a região do Brasil e serão creditados diretamente na conta de jogo.
+                </p>
+                <div class="final-price">
+                    <span>Preço</span>
+                    <span>R$ 36,00</span>
+                </div>
+                <div class="payment-method">
+                    <span>Método de pagamento</span>
+                    <span>Pix</span> <!-- Adaptado -->
+                </div>
+            </section>
+
+            <form id="checkout-form">
+                <div class="form-group promo-code">
+                    <label for="promo">Código promocional</label>
+                    <div class="input-group">
+                        <input type="text" id="promo" name="promo" placeholder="Exemplo: PROMO123" disabled>
+                        <button type="button" class="apply-button" disabled>Aplicar</button>
+                    </div>
+                    <p class="promo-applied-message">Desconto já aplicado!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="player-name">Nome do Jogador</label>
+                    <input type="text" id="player-name" name="player-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required> <!-- Adicionar máscara depois -->
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="dob">Data de nascimento</label>
+                        <input type="text" id="dob" name="dob" placeholder="DD/MM/AAAA" required> <!-- Adicionar máscara depois -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Número de telefone</label>
+                    <input type="tel" id="phone" name="phone" required> <!-- Adicionar máscara depois -->
+                </div>
+
+                <p class="terms">
+                    Ao clicar em "Prosseguir para Pagamento", atesto que li e concordo com os <a href="#">termos de uso</a> e com a <a href="#">política de privacidade</a> do SharkPay. <!-- Adaptado -->
+                </p>
+
+                <button type="submit" class="submit-button">Prosseguir para pagamento</button>
+                 <div id="loading-indicator" class="hidden">
+                     <!-- Conteúdo será preenchido pelo JavaScript -->
+                 </div>
+            </form>
+
+            <!-- Seção para exibir o PIX gerado -->
+            <section id="pix-section" class="hidden">
+                <h2>Pague com PIX</h2>
+                <p>Escaneie o QR Code abaixo ou use o código Copia e Cola:</p>
+                <div id="qrcode-container"></div>
+                <textarea id="pix-copia-cola" rows="4" readonly></textarea>
+                <button type="button" id="copy-button">Copiar Código</button>
+                <button type="button" id="check-payment-button" class="check-button">Verificar Pagamento</button>
+                <button type="button" id="already-paid-button" class="paid-button">Já paguei!</button>
+                <p id="expiration-info"></p>
+                <p id="status-message"></p>
+            </section>
+
+        </main>
+
+        <footer>
+            <!-- Adicionar conteúdo do rodapé se necessário -->
+             <p>&copy; Seu Site. Todos os direitos reservados.</p> 
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
